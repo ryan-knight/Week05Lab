@@ -45,7 +45,7 @@ public class ShoppingListServlet extends HttpServlet
         
         String username = (String)session.getAttribute("username");
         
-        if(action.equals("register") && !request.getParameter("name").equals(""));
+        if(action.equals("register"))
         {
             session = request.getSession();
             username = request.getParameter("name");
@@ -54,7 +54,7 @@ public class ShoppingListServlet extends HttpServlet
                 
         if(username == null)
         {
-            request.setAttribute("message", "No session" + username);
+//            request.setAttribute("message", "No session" + username);
             getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         }
